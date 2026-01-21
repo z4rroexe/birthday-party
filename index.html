@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Birthday Party</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #1e1e2f, #3a3a6a);
+      color: white;
+      text-align: center;
+      overflow-x: hidden;
+    }
+
+    header {
+      padding: 60px 20px;
+    }
+
+    h1 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+    }
+
+    .card {
+      background: rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      max-width: 400px;
+      margin: 40px auto;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .song-title {
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+
+    .artist {
+      opacity: 0.8;
+      margin-bottom: 15px;
+    }
+
+    button {
+      padding: 12px 20px;
+      border: none;
+      border-radius: 25px;
+      background: #ff5f7e;
+      color: white;
+      font-size: 1rem;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff3f67;
+    }
+
+    footer {
+      margin-top: 60px;
+      font-size: 0.9rem;
+      opacity: 0.7;
+    }
+
+    .confetti {
+      position: fixed;
+      top: -10px;
+      width: 10px;
+      height: 10px;
+      background: gold;
+      animation: fall linear infinite;
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>🎉 Birthday Party 🎉</h1>
+  <p>The #1 song the week I was born</p>
+</header>
+
+<div class="card">
+  <p><strong>Week of January 2005</strong></p>
+  <p class="song-title">Let Me Love You</p>
+  <p class="artist">Mario</p>
+  <button onclick="openSong()">Listen 🎧</button>
+</div>
+
+<footer>
+  <p>Created by Jaylon Brown</p>
+</footer>
+
+<script>
+  function openSong() {
+    window.open("https://www.youtube.com/watch?v=H64QG4UsrGI", "_blank");
+  }
+
+  // Confetti effect
+  for (let i = 0; i < 40; i++) {
+    const confetti = document.createElement("div");
+    confetti.className = "confetti";
+    confetti.style.left = Math.random() * 100 + "vw";
+    confetti.style.animationDuration = 2 + Math.random() * 3 + "s";
+    confetti.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+    document.body.appendChild(confetti);
+  }
+</script>
+
+</body>
+</html>
