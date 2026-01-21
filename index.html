@@ -2,79 +2,105 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Birthday Party</title>
+  <title>Birthday Party 🎉</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
+    * {
+      box-sizing: border-box;
+    }
+
     body {
       margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #3a3a6a);
-      color: white;
+      font-family: 'Segoe UI', Tahoma, sans-serif;
+      background: linear-gradient(135deg, #0f0f1a, #2c2c54);
+      color: #ffffff;
       text-align: center;
       overflow-x: hidden;
     }
 
     header {
-      padding: 60px 20px;
+      padding: 60px 20px 30px;
     }
 
     h1 {
       font-size: 3rem;
       margin-bottom: 10px;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      opacity: 0.8;
+      font-size: 1.1rem;
     }
 
     .card {
-      background: rgba(255, 255, 255, 0.1);
-      border-radius: 20px;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 25px;
       padding: 30px;
-      max-width: 400px;
+      max-width: 420px;
       margin: 40px auto;
-      box-shadow: 0 20px 40px rgba(0,0,0,0.3);
-      transition: transform 0.3s ease;
+      box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+      transition: transform 0.4s ease, box-shadow 0.4s ease;
     }
 
     .card:hover {
-      transform: scale(1.05);
+      transform: translateY(-8px) scale(1.03);
+      box-shadow: 0 35px 70px rgba(0, 0, 0, 0.6);
+    }
+
+    .thumbnail {
+      width: 100%;
+      border-radius: 18px;
+      margin: 20px 0;
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
     }
 
     .song-title {
-      font-size: 1.5rem;
-      font-weight: bold;
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin: 10px 0 5px;
     }
 
     .artist {
-      opacity: 0.8;
-      margin-bottom: 15px;
+      opacity: 0.75;
+      margin-bottom: 20px;
     }
 
     button {
-      padding: 12px 20px;
+      padding: 14px 28px;
       border: none;
-      border-radius: 25px;
-      background: #ff5f7e;
+      border-radius: 30px;
+      background: linear-gradient(135deg, #ff4d6d, #ff758f);
       color: white;
       font-size: 1rem;
+      font-weight: 600;
       cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 10px 25px rgba(255, 77, 109, 0.4);
     }
 
     button:hover {
-      background: #ff3f67;
+      transform: scale(1.08);
+      box-shadow: 0 15px 35px rgba(255, 77, 109, 0.6);
     }
 
     footer {
       margin-top: 60px;
+      padding-bottom: 30px;
       font-size: 0.9rem;
-      opacity: 0.7;
+      opacity: 0.6;
     }
 
+    /* Confetti */
     .confetti {
       position: fixed;
       top: -10px;
       width: 10px;
       height: 10px;
-      background: gold;
       animation: fall linear infinite;
+      z-index: 0;
     }
 
     @keyframes fall {
@@ -86,37 +112,45 @@
 </head>
 <body>
 
-<header>
-  <h1>🎉 Birthday Party 🎉</h1>
-  <p>The #1 song the week I was born</p>
-</header>
+  <header>
+    <h1>🎉 Birthday Party 🎉</h1>
+    <p>The #1 song the week I was born</p>
+  </header>
 
-<div class="card">
-  <p><strong>Week of January 2005</strong></p>
-  <p class="song-title">Let Me Love You</p>
-  <p class="artist">Mario</p>
-  <button onclick="openSong()">Listen 🎧</button>
-</div>
+  <div class="card">
+    <p><strong>January 2005</strong></p>
 
-<footer>
-  <p>Created by Jaylon Brown</p>
-</footer>
+    <img
+      src="https://img.youtube.com/vi/H64QG4UsrGI/hqdefault.jpg"
+      alt="Let Me Love You thumbnail"
+      class="thumbnail"
+    />
 
-<script>
-  function openSong() {
-    window.open("https://www.youtube.com/watch?v=H64QG4UsrGI", "_blank");
-  }
+    <p class="song-title">Let Me Love You</p>
+    <p class="artist">Mario</p>
 
-  // Confetti effect
-  for (let i = 0; i < 40; i++) {
-    const confetti = document.createElement("div");
-    confetti.className = "confetti";
-    confetti.style.left = Math.random() * 100 + "vw";
-    confetti.style.animationDuration = 2 + Math.random() * 3 + "s";
-    confetti.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
-    document.body.appendChild(confetti);
-  }
-</script>
+    <button onclick="openSong()">Listen 🎧</button>
+  </div>
+
+  <footer>
+    <p>Created by Jaylon Brown</p>
+  </footer>
+
+  <script>
+    function openSong() {
+      window.open("https://www.youtube.com/watch?v=H64QG4UsrGI", "_blank");
+    }
+
+    // Confetti generator
+    for (let i = 0; i < 45; i++) {
+      const confetti = document.createElement("div");
+      confetti.className = "confetti";
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.animationDuration = 2 + Math.random() * 3 + "s";
+      confetti.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+      document.body.appendChild(confetti);
+    }
+  </script>
 
 </body>
 </html>
